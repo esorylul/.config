@@ -5,6 +5,7 @@
 # but these...
 !/zsh/
 !/ranger/
+ranger/plugins/__pycache__/*
 !/.gitignore
 !/dwm_scripts
 
