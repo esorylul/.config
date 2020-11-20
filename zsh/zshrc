@@ -123,7 +123,7 @@ bindkey -M vicmd 'j' history-substring-search-down
 # }}} End configuration added by Zim install
 
 # import plugin
-source $XDG_CONFIG_HOME/zsh/env.zsh
+source ~/.config/zsh/env.zsh
 source $XDG_CONFIG_HOME/zsh/plugin.zsh
 source $XDG_CONFIG_HOME/zsh/alias.zsh
 
