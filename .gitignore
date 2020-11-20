@@ -1,0 +1,9 @@
+# ignore all
+/*
+/*/
+
+# but these...
+!/zsh/
+!/ranger/
+!/.gitignore
+
