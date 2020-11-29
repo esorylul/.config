@@ -1,5 +1,6 @@
 #!/bin/bash
 
+xrandr --output HDMI-1 --auto --output eDP-1 --off
 #xrandr --newmode "1920x1080"  173.00  1920 2048 2248 2576  1080 1083 1088 1120 -hsync +vsync
 #xrandr --addmode Virtual-1 1920x1080
 #xrandr -s 1920x1080
@@ -9,7 +10,7 @@ xmodmap -e 'keycode 9 = Caps_Lock'
 xmodmap -e 'keycode 66 = Escape'
 
 picom -b
-feh --bg-fill ~/Pictures/Arch-1.png
+feh --bg-fill ~/Pictures/Arch-1.jpg
 ZSH_DIR="$HOME/.zshrc"
 if [ ! -e $ZSH_DIR ]; then
 			ln -s $HOME/.config/zsh/zshrc $HOME/.zshrc	
