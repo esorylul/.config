@@ -11,6 +11,8 @@ xmodmap -e 'keycode 66 = Escape'
 
 picom -b
 feh --bg-fill ~/Pictures/Arch-1.jpg
+fcitx5 &
+qv2ray & # 自启动却qV2ray 
 ZSH_DIR="$HOME/.zshrc"
 if [ ! -e $ZSH_DIR ]; then
 			ln -s $HOME/.config/zsh/zshrc $HOME/.zshrc	
