@@ -11,7 +11,8 @@ xmodmap -e 'keycode 66 = Escape'
 
 qv2ray & # 自启动却qV2ray 
 picom -b
-feh --bg-fill ~/Pictures/Arch-1.jpg
+#feh --bg-fill ~/Pictures/Arch-1.jpg
+feh --bg-fill ~/Pictures/Nord.png
 fcitx5 &
 
 show_date(){
