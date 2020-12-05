@@ -1,5 +1,0 @@
-cowsay "Hello! Guys!"
-# import plugin
-source ~/.config/zsh/env.zsh
-source $XDG_CONFIG_HOME/zsh/plugin.zsh
-source $XDG_CONFIG_HOME/zsh/alias.zsh

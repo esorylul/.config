@@ -8,4 +8,5 @@
 ranger/plugins/__pycache__/*
 !/.gitignore
 !/dwm_scripts
-
+!/fish/
+fish/fish_variables
