@@ -9,17 +9,16 @@ set PATH ~/.config/dwm_scripts/ $PATH
 set PATH ~/go/bin/ $PATH
 
 # =======================
-# Nord Theme
+# Dracula Theme
 # =======================
-
-set -U fish_color_autosuggestion 4c566a
+set -U fish_color_autosuggestion BD93F9
 set -U fish_color_cancel \x2dr
-set -U fish_color_command 81a1c1
-set -U fish_color_comment 434c5e
+set -U fish_color_command F8F8F2
+set -U fish_color_comment 6272A4
 set -U fish_color_cwd green
 set -U fish_color_cwd_root red
-set -U fish_color_end 88c0d0
-set -U fish_color_error ebcb8b
+set -U fish_color_end 50FA7B
+set -U fish_color_error FFB86C
 set -U fish_color_escape 00a6b2
 set -U fish_color_history_current \x2d\x2dbold
 set -U fish_color_host normal
@@ -27,14 +26,21 @@ set -U fish_color_host_remote yellow
 set -U fish_color_match \x2d\x2dbackground\x3dbrblue
 set -U fish_color_normal normal
 set -U fish_color_operator 00a6b2
-set -U fish_color_param eceff4
-set -U fish_color_quote a3be8c
-set -U fish_color_redirection b48ead
+set -U fish_color_param FF79C6
+set -U fish_color_quote F1FA8C
+set -U fish_color_redirection 8BE9FD
 set -U fish_color_search_match bryellow\x1e\x2d\x2dbackground\x3dbrblack
 set -U fish_color_selection white\x1e\x2d\x2dbold\x1e\x2d\x2dbackground\x3dbrblack
 set -U fish_color_status red
 set -U fish_color_user brgreen
 set -U fish_color_valid_path \x2d\x2dunderline
+set -U fish_greeting \x1d
+set -U fish_key_bindings fish_vi_key_bindings
+set -U fish_pager_color_completion normal
+set -U fish_pager_color_description B3A06D\x1eyellow
+set -U fish_pager_color_prefix white\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
+set -U fish_pager_color_progress brwhite\x1e\x2d\x2dbackground\x3dcyan
+set -U fish_user_paths /home/lulyrose/\x2efzf/bin
 
 # =======================
 # Nord Theme Prompt
@@ -108,7 +114,7 @@ function fish_prompt --description 'Write out the prompt'
             set suffix (set_color red)'#'
         case '*'
             set color_cwd $fish_color_cwd
-            set suffix (set_color green --bold)'$'
+            set suffix (set_color '#bd93f9' --bold)'$'
     end
 
     # PWD
@@ -121,7 +127,7 @@ function fish_prompt --description 'Write out the prompt'
     set -l pipestatus_string (__fish_print_pipestatus "[" "] " "|" (set_color $fish_color_status) (set_color --bold $fish_color_status) $last_pipestatus)
     echo -n $pipestatus_string
     echo -n "$suffix "
-		echo -n (set_color red)'❯'(set_color yellow)'❯'(set_color green)'❯ '
+		echo -n (set_color '#8be9fd')'❯'(set_color green )'❯'(set_color '#bd93f9')'❯ '
     set_color normal
 end
 
@@ -131,7 +137,7 @@ end
 
 alias ra ranger
 alias lg lazygit
-alias s neofetch
+alias s "neofetch --ascii_distro bsd"
 alias v nvim
 alias c "ssh root@121.196.37.232"
 function ss
