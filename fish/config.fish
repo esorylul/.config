@@ -137,7 +137,7 @@ end
 
 alias ra ranger
 alias lg lazygit
-alias s "neofetch --ascii_distro bsd"
+alias s "neofetch"
 alias v nvim
 alias c "ssh root@121.196.37.232"
 function ss
@@ -146,3 +146,7 @@ end
 function ssr
     export ALL_PROXY=http://127.0.0.1:8889 && export ALL_PROXY=https://127.0.0.1:8889
 end
+# Wifi
+alias wifis "nmcli d wifi list"
+alias wific "nmcli d wifi connect"
+alias wifid "nmcli radio wifi off"
