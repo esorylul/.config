@@ -29,8 +29,44 @@ kernel(){
 	      echo $kernel
 }
 
+show_battery(){
+	batt="$(acpi -b | awk '{ print $4 }' | tr -d ',' | tr -d '%')"
+	charging="$(acpi -b | awk '{ print $3 }' | tr -d ',')"
+
+	if [[ $charging == "Charging" ]]; then
+		if [[ "$batt" -le "5" ]]; then
+			icon=""
+		elif [[ "$batt" -gt "5" && "$batt" -le "20" ]]; then
+			icon=""
+		elif [[ "$batt" -gt "20" && "$batt" -le "50" ]]; then
+			icon=""
+		elif [[ "$batt" -gt "50" && "$batt" -le "80" ]]; then
+			icon=""
+		elif [[ "$batt" -gt "80" && "$batt" -le "99" ]]; then
+			icon=""
+		else
+			icon=""
+		fi
+	else
+		if [[ "$batt" -le "5" ]]; then
+			icon=""
+		elif [[ "$batt" -gt "5" && "$batt" -le "20" ]]; then
+			icon=""
+		elif [[ "$batt" -gt "20" && "$batt" -le "50" ]]; then
+			icon=""
+		elif [[ "$batt" -gt "50" && "$batt" -le "80" ]]; then
+			icon=""
+		elif [[ "$batt" -gt "80" && "$batt" -le "99" ]]; then
+			icon=""
+		else
+			icon=""
+		fi
+	fi
+	echo "$icon $batt"
+}
+
 status_bar(){
-	echo "  $(kernel) | $(show_mem) | $(show_volume) | $(show_date)"
+	echo "  $(kernel) | $(show_mem) | $(show_volume) | $(show_battery) | $(show_date)"
 }
 
 show_volume(){
