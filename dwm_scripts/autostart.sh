@@ -10,6 +10,7 @@ xmodmap -e 'keycode 9 = Caps_Lock'
 xmodmap -e 'keycode 66 = Escape'
 xmodmap -e 'remove Lock = Caps_Lock'
 
+flameshot &
 picom -b
 #feh --bg-fill ~/Pictures/Arch-1.jpg
 feh --bg-fill ~/Pictures/Nord.png
@@ -20,13 +21,27 @@ show_date(){
 }
 
 show_mem(){
-				mem="$(free -h | awk '/Mem:/ {printf $3 " / " $2}')"	
-				echo "  $mem"
+				memUse="$(free -m | awk '/Mem:/ {print $3}')"	
+				memTotal="$(free -m | awk '/Mem:/ {print $2}')"
+				mem="$(echo "$memUse $memTotal" | awk '{printf ("%.2f\n",$1/$2*100)}')"
+				echo "  $mem%"
 }
 
 kernel(){
-      	kernel="$(uname -sr | sed "s/-arch1-1//g")"
+      	kernel="$(uname -sr | sed "s/-arch2-1//g")"
 	      echo $kernel
+}
+
+status_wifi(){
+	wifiStatus="$(nmcli device | grep "wifi" |awk 'NR==1{print $3}')"
+	if [[ $wifiStatus == "connected" ]]; then
+		icon="直"
+		wifiName="$(nmcli device | grep "wifi" |awk 'NR==1{print $4}')"
+		echo "$icon $wifiName"
+	else
+		icon="睊"
+		echo "$icon"
+	fi
 }
 
 show_battery(){
@@ -62,11 +77,11 @@ show_battery(){
 			icon=""
 		fi
 	fi
-	echo "$icon $batt"
+	echo "$icon $batt%"
 }
 
 status_bar(){
-	echo "  $(kernel) | $(show_mem) | $(show_volume) | $(show_battery) | $(show_date)"
+	echo "  $(kernel) | $(show_mem) | $(show_volume) | $(show_battery) | $(status_wifi) | $(show_date)"
 }
 
 show_volume(){
@@ -81,7 +96,7 @@ show_volume(){
 			icon=""
 	fi
 
-	echo "$icon  $volume %"
+	echo "$icon  $volume%"
 }
 
 while true; do
